@@ -19,7 +19,7 @@ const syncReadFile = (filename) => {
 const removeUnnecessaryCharacters = (input) => {
   try {
     //Regular expression to remove the unnecessary characters except used characters: "=", ",", "-"
-    const regex = /[`~!@#$%^&*()_|+\?;'".<>\{\}\[\]\\\/]/gi;
+    const regex = /[`~!@#$%^&*()_|+\?;'".<>\{\}\[\]\\\/ ]/gi;
     return input.replace(regex, "");
   } catch (error) {
     console.log(error);
