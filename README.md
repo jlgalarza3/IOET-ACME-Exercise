@@ -47,7 +47,7 @@ Javascript is a programming language that handles JSON objects very well. My int
  5. **Algorithm to compare employee schedules**
 Finally, the algorithm was performed by comparing the schedule of an employee A, with an employee B, based on the day and time that have coincided.
 
-## Architecture :triangular_ruler:
+## 3. Architecture :triangular_ruler:
 
 I used the MVC architecture pattern as shown below.
 
