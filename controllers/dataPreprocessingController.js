@@ -32,12 +32,19 @@ const removeUnnecessaryCharacters = (input) => {
 const orderDataToArrayOfEmployees = (input) => {
   try {
     let employeeObjectArray = input
+      //split the string by breaklines
       .split("\n")
+      //split the string by character "="
       .map((line) => line.split("="))
+      //Map each line
       .map((line, index) => {
+        //Create a new Employee object and assign the data to it for each line
         return new Employee(
+          //Id:
           index,
+          //Name:
           line[0],
+          //Schedule:
           line[1].split(",").map((schedule) => {
             return {
               day: schedule.substring(0, 2),
