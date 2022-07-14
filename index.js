@@ -1,7 +1,5 @@
 //Import view function from view.js
-const {
-  getResult,
-} = require("./controllers/compareEmployeeScheduleController");
+const { getResult } = require("./controllers/employeeController");
 const { view } = require("./views/employeeView");
 
 //Import Filename from data folder
