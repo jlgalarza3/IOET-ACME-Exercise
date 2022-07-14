@@ -1,5 +1,5 @@
+const EMPLOYEE_DATA_FILENAME = "./employee-entry-control.txt";
 //Import Testing Functions
-const { main } = require(".");
 const {
   removeUnnecessaryCharacters,
 } = require("./controllers/dataPreprocessingController");
@@ -13,14 +13,14 @@ const {
 // **** Testing getResult Function **** //
 //Case 1: Testing if output is a string type
 test("getResult function should return a string", () => {
-  expect(typeof getResult()).toBe("string");
+  expect(typeof getResult(EMPLOYEE_DATA_FILENAME)).toBe("string");
 });
 
 //Case 2: Testing if output is a string with the correct content
 test("getResult function should return a string with the correct output", () => {
   const expectedResult =
     "ASTRID-RENE: 2\nASTRID-ANDRES: 3\nASTRID-JORGE: 2\nASTRID-CARLOS: 2\nRENE-ANDRES: 2\nRENE-JORGE: 2\nRENE-CARLOS: 2\nANDRES-JORGE: 2\nANDRES-CARLOS: 2\nJORGE-CARLOS: 1\n";
-  expect(getResult()).toBe(expectedResult);
+  expect(getResult(EMPLOYEE_DATA_FILENAME)).toBe(expectedResult);
 });
 
 // -------------------------------------------------------------- //
