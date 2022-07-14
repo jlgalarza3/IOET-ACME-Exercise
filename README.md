@@ -68,8 +68,7 @@ Finally, the view displays the result to the user.
 │   README.md
 │   
 ├───controllers
-│       compareEmployeeScheduleController.js
-│       dataPreprocessingController.js
+│       employeeController.js
 │       
 ├───data
 │       employee-entry-control.txt
