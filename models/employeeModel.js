@@ -1,3 +1,7 @@
+//Employee Model
+//** ID: number
+//** Name: string
+//** Schedule: array of objects with day and time
 class Employee {
   constructor(id, name, schedule) {
     this.id = id;
@@ -6,6 +10,7 @@ class Employee {
   }
 }
 
+// Export the Employee class
 module.exports = {
   Employee,
 };
