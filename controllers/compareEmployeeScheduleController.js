@@ -50,6 +50,8 @@ const compareEmployeeSchedule = (employeeJsonData) => {
   }
 };
 
+// Calls the functions to read the data, clean the data, and compare the schedules.
+// Returns a string with the result of the comparison
 const getResult = () => {
   const dataString = syncReadFile(EMPLOYEE_DATA_FILENAME);
   const removedCharacters = removeUnnecessaryCharacters(dataString);
