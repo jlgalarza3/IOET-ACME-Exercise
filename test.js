@@ -1,10 +1,9 @@
-const EMPLOYEE_DATA_FILENAME = "./employee-entry-control.txt";
+const EMPLOYEE_DATA_FILENAME = "./data/employee-entry-control.txt";
 //Import Testing Functions
 const {
   removeUnnecessaryCharacters,
 } = require("./controllers/dataPreprocessingController");
 const {
-  compareEmployeeSchedule,
   getResult,
 } = require("./controllers/compareEmployeeScheduleController");
 
