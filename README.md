@@ -87,10 +87,10 @@ Finally, the view displays the result to the user.
 ## 4. Aproach and Methodology :key:
 MVC was used because of its performance when carrying out object-oriented programming projects, since priority was given to the generation of objects of type Employee. Following the steps mentioned in the Overview of my solution, the methodology used in each step will be explained in a better way.
 
-1. **Data Extraction:** 
+### 1. **Data Extraction:** 
 The readFileSync(filename, options) function of the language's own fs (file system) module was used. This function allows the extraction of text from the .txt file, and returns the content in a string
 
- 2. **Data Cleaning:**
+ ### 2. **Data Cleaning:**
 Since there is a blank space in the first entry of the exercise, it was decided to check that no special characters other than those used to separate the string data are displayed. To control this, the regular expression was used: 
 
 ```
@@ -100,13 +100,13 @@ Since there is a blank space in the first entry of the exercise, it was decided 
 Together with javascript's replace() function, thus, removing unwanted characters.
 
 
- 3. **Data Separation**
+ ### 3. **Data Separation**
 We make a line break separation through the split("\n") function, another split for the "=" character, so we get the name. 
 Finally, it is worth mentioning that the schedule is divided as follows 
 - **Day:** The first two characters of the string.
 - **Time:** It is an array of the time of entry and exit of the employee, it is made from the first two characters extracted from the day.
 
- 4. **Data Sorting**
+ ### 4. **Data Sorting**
 In this step, an object of type Employee is created for each line read from the string, where the index is assigned to the id, the first line to the name and the second line to the schedule.
 
 Thus an array of Employees is obtained as follows: 
@@ -135,7 +135,7 @@ Thus an array of Employees is obtained as follows:
 ...
 ```
     
- 5. **Algorithm to compare employee schedules**
+ ### 5. **Algorithm to compare employee schedules**
 
 To obtain the desired result, the path of two arrays is applied simultaneously, one will start from i+1 so that the name is not repeated.
 
