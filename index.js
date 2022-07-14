@@ -3,6 +3,8 @@ const {
   getResult,
 } = require("./controllers/compareEmployeeScheduleController");
 const { view } = require("./views/employeeView");
+
+//Import Filename from data folder
 const EMPLOYEE_DATA_FILENAME = "./data/employee-entry-control.txt";
 
 // **** MAIN Function **** //
