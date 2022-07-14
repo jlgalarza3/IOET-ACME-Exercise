@@ -129,9 +129,10 @@ Thus an array of Employees is obtained as follows:
   { day: 'TH', time: [ '01:00', '03:00' ] },
   { day: 'SA', time: [ '14:00', '18:00' ] },
   { day: 'SU', time: [ '20:00', '21:00\r' ]}]
-  }
+  },
+ ...
 ]
-...
+
 ```
     
  ### 5. **Algorithm to compare employee schedules**
@@ -149,3 +150,32 @@ If it is fulfilled, the counter is updated by adding 1.
 
 Once this process is finished, the values are assigned to the result, obtaining the desired OUTPUT.
 
+## 5. How to run this project:question:
+
+Make sure `node` & `npm` or `yarn` is installed on your system.
+
+### 1. Open the folder in which you want to run your project
+### 2. Open console
+### 3. Clone this repo
+```
+   git clone https://github.com/jlgalarza3/IOET-ACME-Exercise.git
+```
+### 4. Change Directory
+```
+   cd .\IOET-ACME-Exercise\
+```
+### 5. Install Dependencies 
+
+> Only the jest dependency will be installed for unit testing.
+
+```
+npm install
+```
+### 6. Run Project
+```
+node .\index.js
+```
+### 7. Run Unit Tests
+```
+npm test
+```
