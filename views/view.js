@@ -13,10 +13,10 @@ const {
   removeUnnecessaryCharacters,
 } = require("../controllers/dataPreprocessingController");
 
-// **** Main Function **** //
+// **** View Function **** //
 // Calls the functions to read the data, clean the data, and compare the schedules.
-// Returns a string with the result of the comparison
-main = () => {
+// Returns and print a string with the result of the comparison
+const view = () => {
   const dataString = syncReadFile(EMPLOYEE_DATA_FILENAME);
   const removedCharacters = removeUnnecessaryCharacters(dataString);
   const employeeObjectArray = orderDataToArrayOfEmployees(removedCharacters);
@@ -25,5 +25,6 @@ main = () => {
   return result;
 };
 
-// Call the main function
-main();
+module.exports = {
+  view,
+};
