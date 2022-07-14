@@ -164,18 +164,23 @@ Make sure `node` & `npm` or `yarn` is installed on your system.
 ```
    cd .\IOET-ACME-Exercise\
 ```
-### 5. Install Dependencies 
+
+### 5. Open on Visual Studio Code
+```
+   code .
+```
+### 6. Install Dependencies 
 
 > Only the jest dependency will be installed for unit testing.
 
 ```
-npm install
+yarn install || npm install
 ```
-### 6. Run Project
+### 7. Run Project
 ```
 node .\index.js
 ```
-### 7. Run Unit Tests
+### 8. Run Unit Tests
 ```
 npm test
 ```
