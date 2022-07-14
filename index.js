@@ -1,3 +1,4 @@
+//Import view function from view.js
 const { view } = require("./views/view");
 
 // **** MAIN Function **** //
