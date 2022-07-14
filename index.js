@@ -9,8 +9,3 @@ const main = () => {
 
 //Call the main function
 main();
-
-//Export the main function to be used in testing
-module.exports = {
-  main,
-};

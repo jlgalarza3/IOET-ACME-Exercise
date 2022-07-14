@@ -3,20 +3,24 @@ const { main } = require(".");
 const {
   removeUnnecessaryCharacters,
 } = require("./controllers/dataPreprocessingController");
+const {
+  compareEmployeeSchedule,
+  getResult,
+} = require("./controllers/compareEmployeeScheduleController");
 
 // -------------------------------------------------------------- //
 
-// **** Testing main Function **** //
+// **** Testing getResult Function **** //
 //Case 1: Testing if output is a string type
-test("main function should return a string", () => {
-  expect(typeof main()).toBe("string");
+test("getResult function should return a string", () => {
+  expect(typeof getResult()).toBe("string");
 });
 
 //Case 2: Testing if output is a string with the correct content
-test("main function should return a string with the correct output", () => {
+test("getResult function should return a string with the correct output", () => {
   const expectedResult =
     "ASTRID-RENE: 2\nASTRID-ANDRES: 3\nASTRID-JORGE: 2\nASTRID-CARLOS: 2\nRENE-ANDRES: 2\nRENE-JORGE: 2\nRENE-CARLOS: 2\nANDRES-JORGE: 2\nANDRES-CARLOS: 2\nJORGE-CARLOS: 1\n";
-  expect(main()).toBe(expectedResult);
+  expect(getResult()).toBe(expectedResult);
 });
 
 // -------------------------------------------------------------- //
@@ -30,15 +34,17 @@ test("removeUnnecessaryCharacters function must return a string free of unnecess
 });
 
 //Case 2: Input contains blank spaces
-test("removeUnnecessaryCharacters function must return a string free of unnecessary characters", () => {
+test("removeUnnecessaryCharacters function must return a string free of blank spaces", () => {
   const input = "ASTRI D=MO10:00-12:00,TH12:00-14 :00,SU20:0 0-21: 00";
   const output = "ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00";
   expect(removeUnnecessaryCharacters(input)).toBe(output);
 });
 
 //Case 3: Input contains unnecessary characters and blank spaces
-test("removeUnnecessaryCharacters function must return a string free of unnecessary characters", () => {
+test("removeUnnecessaryCharacters function must return a string free of unnecessary characters and blank spaces", () => {
   const input = "ASTRI D=MO10:&00/-12:00,TH12+:00-1/4 _:00,SU20:0_ 0-21: ?0?0";
   const output = "ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00";
   expect(removeUnnecessaryCharacters(input)).toBe(output);
 });
+
+// -------------------------------------------------------------- //

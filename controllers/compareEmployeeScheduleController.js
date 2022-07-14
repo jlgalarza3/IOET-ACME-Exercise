@@ -1,3 +1,13 @@
+//Import Filename as a string
+const EMPLOYEE_DATA_FILENAME = "./employee-entry-control.txt";
+
+//Import Controller: Data Preprocessing Controller functions
+const {
+  syncReadFile,
+  orderDataToArrayOfEmployees,
+  removeUnnecessaryCharacters,
+} = require("./dataPreprocessingController");
+
 // Input: Array of employee objects
 // Process: Compare the schedules of each employee based on coincidence of day and time
 // Output: String of the result of the comparison: "Name1+Name2: Coincidence in day and time"
@@ -40,7 +50,16 @@ const compareEmployeeSchedule = (employeeJsonData) => {
   }
 };
 
+const getResult = () => {
+  const dataString = syncReadFile(EMPLOYEE_DATA_FILENAME);
+  const removedCharacters = removeUnnecessaryCharacters(dataString);
+  const employeeObjectArray = orderDataToArrayOfEmployees(removedCharacters);
+  const result = compareEmployeeSchedule(employeeObjectArray);
+  return result;
+};
+
 // Export the function to be used in the other files.
 module.exports = {
   compareEmployeeSchedule,
+  getResult,
 };
