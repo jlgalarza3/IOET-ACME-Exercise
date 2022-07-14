@@ -26,25 +26,23 @@ const removeUnnecessaryCharacters = (input) => {
   }
 };
 
-// Clean the employee data, spliting by characteres
-// Asigns the data to the Employee object
-// Returns an array of Employee objects.
+// 1. Clean the employee data, spliting by characteres
+// 2. Asigns the data to the Employee object
+// 3. Returns an array of Employee objects.
 const orderDataToArrayOfEmployees = (input) => {
   try {
     let employeeObjectArray = input
-      //split the string by breaklines
       .split("\n")
-      //split the string by character "="
       .map((line) => line.split("="))
-      //Map each line
       .map((line, index) => {
         //Create a new Employee object and assign the data to it for each line
         return new Employee(
-          //Id:
-          index,
-          //Name:
-          line[0],
-          //Schedule:
+          index, //id
+          line[0], //name
+          // ** Schedule: ** //
+          //Day would be only the two first characters of the string
+          //Time would be as of the string after the two first characters
+          //Split the string by "-", getting array of interval of time
           line[1].split(",").map((schedule) => {
             return {
               day: schedule.substring(0, 2),
