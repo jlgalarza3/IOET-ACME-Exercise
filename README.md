@@ -57,3 +57,29 @@ In which the user, through the main method sends the txt file and requests the c
 The controller is responsible for performing the data cleansing and performs the algorithm process to get the result.
 The controller sends the result of the process to the view
 Finally, the view displays the result to the user.
+
+### Directory Tree
+
+```
+   .gitignore
+│   index.js
+│   package-lock.json
+│   package.json
+│   README.md
+│   
+├───controllers
+│       compareEmployeeScheduleController.js
+│       dataPreprocessingController.js
+│       
+├───data
+│       employee-entry-control.txt
+│       
+├───models
+│       employeeModel.js
+│       
+├───test
+│       test.js
+│       
+└───views
+        employeeView.js
+```
