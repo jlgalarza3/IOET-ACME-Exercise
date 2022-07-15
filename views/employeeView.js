@@ -1,4 +1,3 @@
-// **** View Function **** //
 // Prints the result of the comparison.
 const view = (result) => {
   console.log(result);

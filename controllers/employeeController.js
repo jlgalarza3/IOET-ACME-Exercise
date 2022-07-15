@@ -1,11 +1,8 @@
-//Imports
 const { readFileSync } = require("fs");
 const { Employee } = require("../models/employeeModel");
 
 /*************************** Preprocessing Data  *************************** */
-
 // Sync Import of the employee data from the file
-// Returns content String of the data readed.
 const syncReadFile = (filename) => {
   try {
     const contents = readFileSync(filename, "utf-8");
@@ -15,11 +12,9 @@ const syncReadFile = (filename) => {
   }
 };
 
-//Remove the unnecessary characters from the employee string
-//Returns a string without the unnecessary characters.
+//Remove the unnecessary characters from the employee string by regex
 const removeUnnecessaryCharacters = (input) => {
   try {
-    //Regular expression to remove the unnecessary characters except used characters: "=", ",", "-"
     const regex = /[`~!@#$%^&*()_|+\?;'".<>\{\}\[\]\\\/ ]/gi;
     return input.replace(regex, "");
   } catch (error) {
@@ -38,12 +33,8 @@ const orderDataToArrayOfEmployees = (input) => {
       .map((line, index) => {
         //Create a new Employee object and assign the data to it for each line
         return new Employee(
-          index, //id
-          line[0], //name
-          // ** Schedule: ** //
-          //Day would be only the two first characters of the string
-          //Time would be as of the string after the two first characters
-          //Split the string by "-", getting array of interval of time
+          index,
+          line[0],
           line[1].split(",").map((schedule) => {
             return {
               day: schedule.substring(0, 2),
@@ -58,29 +49,22 @@ const orderDataToArrayOfEmployees = (input) => {
   }
 };
 
-// Input: Array of employee objects
-// Process: Compare the schedules of each employee based on coincidence of day and time
-// Output: String of the result of the comparison: "Name1+Name2: Coincidence in day and time"
-const compareEmployeeSchedule = (employeeJsonData) => {
+//Algorithm to compare the schedules of each employee
+const compareEmployeeSchedule = (arrayOfEmployees) => {
   try {
     let result = "";
-
-    //Iterate through the array of employee objects
-    for (let i = 0; i < employeeJsonData.length; i++) {
-      for (let j = i + 1; j < employeeJsonData.length; j++) {
+    for (let i = 0; i < arrayOfEmployees.length; i++) {
+      for (let j = i + 1; j < arrayOfEmployees.length; j++) {
         //Asign employee A-B to compare schedule to a variable
-        const scheduleEmployeeA = employeeJsonData[i].schedule;
-        const scheduleEmployeeB = employeeJsonData[j].schedule;
+        const scheduleEmployeeA = arrayOfEmployees[i].schedule;
+        const scheduleEmployeeB = arrayOfEmployees[j].schedule;
 
         //Count Variable to count the coincidence of day and time
         let count = 0;
 
-        //Iterate through the array of schedules of each employee
+        //Iterate through the array of schedules of each employee, compare day and times
         for (let k = 0; k < scheduleEmployeeA.length; k++) {
           for (let l = 0; l < scheduleEmployeeB.length; l++) {
-            //If the day and time of the schedule of employee A is the same as the schedule of employee B
-            //And the time of entry and exit of the schedule of employee A matches the schedule time of employee B
-            //Count the coincidence of day and time
             if (
               scheduleEmployeeA[k].day === scheduleEmployeeB[l].day &&
               scheduleEmployeeA[k].time[0] <= scheduleEmployeeB[l].time[1] &&
@@ -90,8 +74,7 @@ const compareEmployeeSchedule = (employeeJsonData) => {
             }
           }
         }
-        //Result will be the name of the employees that have the same schedule and the coincidence of day and time
-        result += `${employeeJsonData[i].name}-${employeeJsonData[j].name}: ${count}\n`;
+        result += `${arrayOfEmployees[i].name}-${arrayOfEmployees[j].name}: ${count}\n`;
       }
     }
     return result;
@@ -101,7 +84,6 @@ const compareEmployeeSchedule = (employeeJsonData) => {
 };
 
 // Calls the functions to read the data, clean the data, and compare the schedules.
-// Returns a string with the result of the comparison
 const getResult = (employeeFilename) => {
   const dataString = syncReadFile(employeeFilename);
   const removedCharacters = removeUnnecessaryCharacters(dataString);
@@ -110,7 +92,6 @@ const getResult = (employeeFilename) => {
   return result;
 };
 
-// Export the function to be used in the other files.
 module.exports = {
   compareEmployeeSchedule,
   getResult,
