@@ -1,7 +1,6 @@
 const { readFileSync } = require("fs");
 const { Employee } = require("../models/employeeModel");
 
-/*************************** Preprocessing Data  *************************** */
 // Sync Import of the employee data from the file
 const syncReadFile = (filename) => {
   try {
