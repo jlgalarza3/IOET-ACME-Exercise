@@ -61,7 +61,7 @@ Finally, the view displays the result to the user.
 ### Directory Tree
 
 ```
-   .gitignore
+│   .gitignore
 │   index.js
 │   package-lock.json
 │   package.json
@@ -71,6 +71,8 @@ Finally, the view displays the result to the user.
 │       employeeController.js
 │       
 ├───data
+│       employee-entry-control-EXAMPLE1.txt
+│       employee-entry-control-EXAMPLE2.txt
 │       employee-entry-control.txt
 │       
 ├───models
